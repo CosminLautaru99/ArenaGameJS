@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="This a fighting game">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gods of the Arena</title>
+  <link href="/assets/style/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/style/style.css" rel="stylesheet">
+  <link href="/fonts/AUGUSTUS.TTF" rel="stylesheet">
+</head>
+
+
+
+
+<body>
+
+  <div class="header text-center">
+    <h1>Arena of Capua</h1>
+    <h2>Choose your gladiator</h2>
+  </div>
+
+  <div class="container interface text-center">
+
+
+    <div class="row">
+
+      <div class="col-md-4 text-dec">
+        <div class="card mb-4 ">
+          <a class="text-dec" href="#" onclick="gameManager.setGameStart('Gannicus')">
+            <img class="image-body" src='/images/gannicus.jpg' alt="Gannicus">
+            <div>
+              <h3>Gannicus</h3>
+              <p>Gannicus is a former champion in the arena. His feats are skill, agility, speed and durability. </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 ">
+          <a class="text-dec" href="#" onclick="gameManager.setGameStart('Agron')">
+            <img class="image-body" src='/images/agron.jpg' alt="Agron">
+            <div>
+              <h3>Agron</h3>
+              <p>Agron is one of the strongest fighters in the show. His feats are durability and strength. </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 ">
+          <a class="text-dec" href="#" onclick="gameManager.setGameStart('Crixus')">
+            <img class="image-body" src='/images/crixus.jpg' alt="Crixus">
+            <div>
+              <h3>Crixus</h3>
+              <p>Crixus is the Undefeated Gaul, another former champion. His feats are strength, defense and durability.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 ">
+          <a class="text-dec" href="#" onclick="gameManager.setGameStart('Spartacus')">
+            <img class="image-body" src='/images/spartacus.jpg' alt="Spartacus">
+            <div>
+              <h3>Spartacus</h3>
+              <p>Spartacus is the strongest fighter and the current Champion. All the attributes can be called his feats
+                as he is the most complete gladiator.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 ">
+          <a class="text-dec" href="#" onclick="gameManager.setGameStart('Onomaeus')">
+            <img class="image-body" src='/images/onomaeus.jpg' alt="Onomaeus">
+            <div>
+              <h3>Onomaeus</h3>
+              <p>Onomaeus is the oldest of them all and the former pride of House Batiatus. His feats are defense,
+                skill, agility and durability.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="col-md-3">
+        <div class="card mb-4 ">
+          <a class="text-dec" href="#" onclick="gameManager.setGameStart('Caesar')">
+            <img class="image-body" src='/images/caesar.jpg' alt="Caesar">
+            <div>
+              <h3>Gaius Julius Caesar</h3>
+              <p> Caesar is the only Roman that stands a chance against gladiators in the Arena. His feats are defense,
+                strength, speed and agility. </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="actions text-center">
+    <button class="btn playAgain-Btn is-hidden" onclick="gameManager.newRun()">Start a new arena
+      run!</button>
+    <button class="btn randomGladiator is-hidden" onclick="gameManager.setFight()">Choose a random
+      gladiator</button>
+    <button class=" btn btn-outline attack-btn is-hidden"
+      onclick="playerMoves.calcAttack(), gameManager.srcParryChance(), gameManager.nextFight()">Attack</button>
+    <button class="btn btn-outline-primary nextFight-btn is-hidden" onclick="gameManager.setFight()">Next Fight</button>
+  </div>
+
+  <div class="parry text-center">
+    <button class="btn btn-outline parry-btn is-hidden"
+      onclick="playerMoves.parryAttack(),gameManager.nextFight()">Parry</button>
+
+  </div>
+
+  <div class="arena is-hidden text-center">
+  </div>
+  <div class="info is-hidden text-center">
+    <div class="alert"
+      style="margin:0%auto; width:475px;filter: drop-shadow(0px 5px 3px black);margin-top:2px; background-color: rgba(255, 255, 255, 0.3);border:none;color:white;">
+      You
+      can attack or
+      parry your
+      opponents
+      attacks,
+      the one with
+      the higher speed status will attack
+      first.
+      After winning a fight, your health points will replenish.
+      Parrying is really good when your defense is high.</br>
+      (You have 30% chance of parrying an attack and you only have a limited amout of time to parry.)
+    </div>
+  </div>
+
+  <div class="enemy interface text-center">
+
+  </div>
+
+
+  <div class="text-center">
+    <div class="spinner-border  spinner is-hidden" role="status" style="color:#F05D5E">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="alert btn-block text-center is-hidden championAlert" style="width:475px; margin:0 auto;" role="alert">
+    <strong>You are the new Champion of the Arena</strong>
+    </br>
+    Press 'Start a new arena run!' to try out other gladiators!!!
+  </div>
+
+
+
+
+
+  <script src='/assets/javascript/gameManager.js'></script>
+  <script src='/assets/javascript/gladiators.js'></script>
+  <script src='/assets/javascript/enemyGladiator.js'></script>
+</body>
+
+
+
+
+<footer class="footer" text-muted>
+  © 2019 Cosmin Lautaru
+</footer>
+
+
+
+</html>
